@@ -1,9 +1,10 @@
 import React, {Fragment} from 'react'
+import Contacts from '../components/contacts/Contacts'
 
 const Home = () => {
   return (
     <Fragment>
-      Home
+      <Contacts />
     </Fragment>
   )
 }
