@@ -9,8 +9,9 @@ const Register = () => {
   const alertContext = useContext(AlertContext);
 
   const {name, email, password, password2} = user;
+  console.log(user);
 
-  const onChange = (e) => setUser({[e.target.name]: e.target.value});
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value});
 
   const onSubmit = (e) => {
     e.preventDefault();
