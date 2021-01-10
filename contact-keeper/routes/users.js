@@ -5,6 +5,19 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../middleware/auth');
+
+// @route     GET /api/users
+// @desc      Get logged in user
+// @access    Public
+router.get("/", auth, async (req, res) => {
+  try {
+    let user = await User.findById(req.user.id);
+    res.json(user);
+  } catch (error) {
+    return res.status(401).json({msg: "Server Error"});
+  }
+});
 
 // @route     POST /api/users
 // @desc      Register a user
