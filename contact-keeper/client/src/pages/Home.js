@@ -1,11 +1,13 @@
-import React, {Fragment} from 'react'
+import React from 'react'
+import ContactForm from '../components/contacts/ContactForm'
 import Contacts from '../components/contacts/Contacts'
 
 const Home = () => {
   return (
-    <Fragment>
-      <Contacts />
-    </Fragment>
+    <div className="grid-2">
+      <div><ContactForm /></div>
+      <div><Contacts /></div>
+    </div>
   )
 }
 

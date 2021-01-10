@@ -6,17 +6,14 @@ const Contacts = () => {
   const contactContext = useContext(ContactContext);
   const {contacts} = contactContext;
 
-  return (
-    <div className="grid-2">
-      <div>Contact form</div>
-      <div>
-        {
-          contacts.map(contact => (
-            <ContactItem key={contact.id} contact={contact} />
-          ))
-        }
-      </div>
-    </div>
+  return (    
+    <Fragment>
+      {
+        contacts.map(contact => (
+          <ContactItem key={contact.id} contact={contact} />
+        ))
+      }
+    </Fragment>    
   )
 }
 

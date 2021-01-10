@@ -1,7 +1,19 @@
-import React from 'react'
+import React, {useContext} from 'react';
+import ContactContext from '../../context/contact/contactContext';
+
 
 const ContactItem = ({contact}) => {
   const {name, email, id, phone, type} = contact;
+
+  const contactContext = useContext(ContactContext)
+
+  const editContact = (e) => {
+
+  }
+  
+  const deleteContact = (e) => {
+    contactContext.deleteContact(contact.id);
+  }
 
   return (
     <div className="card bg-light">
@@ -18,8 +30,8 @@ const ContactItem = ({contact}) => {
         </li>}
       </ul>
       <p>
-        <button className="btn btn-dark btn-sm">Edit</button>
-        <button className="btn btn-danger btn-sm">Delete</button>
+        <button type="button" className="btn btn-dark btn-sm" onClick={editContact}>Edit</button>
+        <button type="button" className="btn btn-danger btn-sm" onClick={deleteContact}>Delete</button>
       </p>
     </div>
   )
