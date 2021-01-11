@@ -18,7 +18,6 @@ const Logs = () => {
     const data = await res.json();
 
     setLogs(data);
-    console.log(data);
     setLoading(false);
   }
 

@@ -24,7 +24,7 @@ const EditLog = () => {
       <div className="row">
         <div className="input-field">
           <i className="material-icons prefix">textsms</i>
-          <input type="text" id="msg" value={msg} onChange={e => onChange('msg', e.target.value)} />
+          <input type="text" id="msg1" value={msg} onChange={e => onChange('msg', e.target.value)} />
           <label htmlFor="msg">Log Message</label>
         </div>
       </div>
@@ -48,7 +48,7 @@ const EditLog = () => {
       </div><br />
       <div className="row">
         <div className="input-field">
-          <a className="waves-effect blue waves-light btn modal-close" onClick={onSubmit}>Add</a>
+          <a href="#!" className="waves-effect blue waves-light btn modal-close" onClick={onSubmit}>Add</a>
         </div>
       </div>
     </div>

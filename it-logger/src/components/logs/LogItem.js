@@ -13,7 +13,7 @@ const LogItem = ({ log }) => {
         <span className="black-text">ID #{id}</span> last updated by{' '}
         <span className="black-text">{tech}</span> on {date}
       </span>
-      <a href="#" className="secondary-content">
+      <a href="#!" className="secondary-content">
         <i className="material-icons grey-text">delete</i>
       </a>
     </li>

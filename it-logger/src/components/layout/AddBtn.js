@@ -7,10 +7,10 @@ const AddBtn = () => {
         <i className="large material-icons">add</i>
       </a>
       <ul>
-        <li><a href="#tech-list-model" className="btn-floating red modal-trigger">
+        <li><a href="#tech-list-modal" className="btn-floating red modal-trigger">
           <i className="material-icons">person</i>
         </a></li>
-        <li><a href="#tech-list" className="btn-floating green darken-1 modal-trigger">
+        <li><a href="#tech-list-add" className="btn-floating green darken-1 modal-trigger">
           <i className="material-icons">person_add</i>
         </a></li>
       </ul>

@@ -46,7 +46,7 @@ const AddLog = () => {
       </div><br />
       <div className="row">
         <div className="input-field">
-          <a className="waves-effect blue waves-light btn modal-close" onClick={onSubmit}>Add</a>
+          <a href="#!" className="waves-effect blue waves-light btn modal-close" onClick={onSubmit}>Add</a>
         </div>
       </div>
     </div>
