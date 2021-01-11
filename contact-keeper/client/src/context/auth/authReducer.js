@@ -3,15 +3,34 @@ import { REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_ERROR,
 
 const AuthReducer = (state, action) => {
   switch (action.type) {
-    case REGISTER_SUCCESS:
-      localStorage.setItem('token', action.payload.token);
+    case USER_LOADED:
       return {
-        ...state, ...action.payload.data, isAutheticated: true, loading: false
+        ...state, isAuthenticated: true, user: action.payload, loading: false, error: null
+      };
+    case AUTH_ERROR:
+      return {
+        ...state, isAuthenticated: false, error: 'User could not loaded', loading: false
+      };
+    case REGISTER_SUCCESS:
+      localStorage.setItem('token', action.payload.data.token);
+      return {
+        ...state, ...action.payload.data, isAuthenticated: true, loading: false
       };
     case REGISTER_FAIL:
       localStorage.removeItem('token');
       return {
-        ...state, token: null, isAutheticated: false, loading: false, user: null, error: action.payload
+        ...state, token: null, isAuthenticated: false, loading: false, user: null, error: action.payload
+      };
+    case LOGIN_SUCCESS:
+      localStorage.setItem('token', action.payload.data.token);
+      return {
+        ...state, ...action.payload.data, isAuthenticated: true, loading: false
+      };
+    case LOGIN_FAIL:
+    case LOGOUT:
+      localStorage.removeItem('token');
+      return {
+        ...state, token: null, isAuthenticated: false, loading: false, user: null, error: action.payload
       };
     case CLEAR_ERRORS:
       return {
