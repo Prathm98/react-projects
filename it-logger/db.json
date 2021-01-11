@@ -1,0 +1,30 @@
+{
+  "logs":[
+    {
+      "id": 1,
+      "msg": "This is the server 1 log",
+      "attention": false,
+      "date": "01-01-2020",
+      "tech": "Abcd"
+    },
+    {
+      "id": 2,
+      "msg": "This is the server 2 log",
+      "attention": false,
+      "date": "02-01-2020",
+      "tech": "Xyzw"
+    }
+  ],
+  "techs":[
+    {
+      "id": 1,
+      "firstName": "Abcd",
+      "lastName": "Efgh"
+    },
+    {
+      "id": 2,
+      "firstName": "Mnop",
+      "lastName": "Xyz"
+    }
+  ]
+}
