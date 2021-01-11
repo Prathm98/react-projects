@@ -27,6 +27,7 @@ const ContactForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    
     if(current){
       contactContext.updateContact(contact);
     }else{

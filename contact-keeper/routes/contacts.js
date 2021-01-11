@@ -15,7 +15,7 @@ router.get("/", auth, async (req, res) => {
   } catch (error) {
     return res.status(500).json({msg: "Server Error"});    
   }
-  res.send('Get contact /');
+  // res.send('Get contact /');
 });
 
 // @route     POST /api/contacts

@@ -31,7 +31,8 @@ const AuthState = (props) => {
     } catch (error) {
       dispatch({
         type: AUTH_ERROR
-      });      
+      });
+      logout();   
     }
   }
 
