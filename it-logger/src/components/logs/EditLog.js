@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddLog = () => {
+const EditLog = () => {
   const [log, setLog] = useState({
     msg: '', attention: false, tech: ''
   });
@@ -12,12 +13,13 @@ const AddLog = () => {
 
   const onSubmit = () => {
     console.log(log);
+    M.toast({html: "Submit"});
   }
 
   return (
-    <div className="modal" id="add-log-model" style={{ width: "75%", padding: "20px", height: "auto"}}>
+    <div className="modal" id="edit-log-modal" style={{ width: "75%", padding: "20px", height: "auto"}}>
       <div className="row"><br />
-        <h4 className="center">Add System Log</h4>
+        <h4 className="center">Update System Log</h4>
       </div>
       <div className="row">
         <div className="input-field">
@@ -53,4 +55,4 @@ const AddLog = () => {
   )
 }
 
-export default AddLog
+export default EditLog
