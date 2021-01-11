@@ -3,7 +3,7 @@ import ContactContext from '../../context/contact/contactContext';
 
 
 const ContactItem = ({contact}) => {
-  const {name, email, id, phone, type} = contact;
+  const {name, email, _id, phone, type} = contact;
 
   const contactContext = useContext(ContactContext);
 
@@ -13,7 +13,7 @@ const ContactItem = ({contact}) => {
   }
   
   const deleteContact = (e) => {
-    contactContext.deleteContact(contact.id);
+    contactContext.deleteContact(contact._id);
     contactContext.clearCurrent();
     contactContext.clearFilter();
   }

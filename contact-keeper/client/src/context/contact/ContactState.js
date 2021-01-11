@@ -18,15 +18,12 @@ const ContactState = (props) => {
   // Get Contacts
   const getContacts = async () => {   
     try {      
-      dispatch({
-        type: SET_LOADING
-      });
+      dispatch({type: SET_LOADING});
       const res = await axios.get('/api/contacts');  
       dispatch({
         type: GET_CONTACTS,
         payload: res.data
       });
-      console.log(res.data);
     } catch (error) {
       dispatch({
         type: CONTACT_ERROR,
@@ -43,6 +40,7 @@ const ContactState = (props) => {
       }
     };
     try {
+      dispatch({type: SET_LOADING});
       const res = await axios.post('/api/contacts', contact, config);
 
       dispatch({
@@ -58,11 +56,22 @@ const ContactState = (props) => {
   }
 
   // Delete Contact
-  const deleteContact = id => {
-    dispatch({
-      type: DELETE_CONTACT,
-      payload: id
-    });
+  const deleteContact = async id => {
+    try {
+      dispatch({type: SET_LOADING});
+      const res = await axios.delete('/api/contacts/'+id);
+
+      dispatch({
+        type: DELETE_CONTACT,
+        payload: id
+      });
+      
+    } catch (error) {
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: error.response.msg
+      });      
+    }    
   }
 
   // Set Current contact form
@@ -74,11 +83,26 @@ const ContactState = (props) => {
   }
 
   // Set Current contact form
-  const updateContact = contact =>{
-    dispatch({
-      type: UPDATE_CONTACT,
-      payload: contact
-    });
+  const updateContact = async contact =>{
+    const config = {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    };
+    try {
+      dispatch({type: SET_LOADING});
+      const res = await axios.put('/api/contacts/'+contact._id, contact, config);
+
+      dispatch({
+        type: UPDATE_CONTACT,
+        payload: res.data
+      });
+    } catch (error) {
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: error.response.msg
+      });      
+    }    
   }  
 
   // Clear Current contact form

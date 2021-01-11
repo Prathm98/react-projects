@@ -9,12 +9,12 @@ const contactReducer = (state, action) => {
       };
     case ADD_CONTACT:
       return {
-        ...state, contacts: [...state.contacts, action.payload], loading: false
+        ...state, contacts: [action.payload, ...state.contacts], loading: false
       };
     case UPDATE_CONTACT:
       return {
         ...state, loading: false, current: null, contacts: state.contacts.map(contact =>(
-          action.payload.id === contact.id? action.payload: contact
+          action.payload._id === contact._id? action.payload: contact
         ))
       };
     case DELETE_CONTACT:
