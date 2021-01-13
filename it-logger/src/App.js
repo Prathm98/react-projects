@@ -9,6 +9,8 @@ import AddLog from './components/logs/AddLog';
 import EditLog from './components/logs/EditLog';
 import TechModal from './components/techs/TechModal';
 import AddTech from './components/techs/AddTech';
+import store from './store';
+import { Provider } from 'react-redux';
 
 const App = () =>{  
   useEffect(() => {
@@ -17,17 +19,19 @@ const App = () =>{
   });
 
   return (
-    <Fragment>
-      <SearchBar />
-      <div className="container">
-        <AddBtn />
-        <TechModal />
-        <AddLog />
-        <EditLog />        
-        <Logs />        
-        <AddTech />
-      </div>
-    </Fragment>
+    <Provider store={store}>
+      <Fragment>
+        <SearchBar />
+        <div className="container">
+          <AddBtn />
+          <TechModal />
+          <AddLog />
+          <EditLog />        
+          <Logs />        
+          <AddTech />
+        </div>
+      </Fragment>
+    </Provider>
   );
 }
 
