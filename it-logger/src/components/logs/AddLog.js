@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
+import { addLog } from '../../actions/logActions';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddLog = () => {
+const AddLog = ({ addLog }) => {
   const [log, setLog] = useState({
     msg: '', attention: false, tech: ''
   });
@@ -11,7 +14,11 @@ const AddLog = () => {
   }
 
   const onSubmit = () => {
-    console.log(log);
+    if(msg === '' || tech === ''){
+      M.toast({html: "Please enter all fields!"});
+    }else{
+      addLog({...log, date: new Date().toDateString()});
+    }    
   }
 
   return (
@@ -53,4 +60,4 @@ const AddLog = () => {
   )
 }
 
-export default AddLog
+export default connect( null, {addLog} )(AddLog);
