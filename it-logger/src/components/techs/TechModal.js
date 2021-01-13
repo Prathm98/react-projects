@@ -25,7 +25,7 @@ const TechModal = () => {
   }
 
   return (
-    <div className="modal" id="tech-list-modal" style={{ width: "75%", padding: "20px", height: "auto"}}>
+    <div className="modal" tabIndex="0" id="tech-list-modal" style={{ width: "75%", padding: "20px", height: "auto"}}>
       <ul className="collection with-header">
         <li className="collection-header">
           <h4 className="center">Technicians</h4>

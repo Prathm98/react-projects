@@ -21,10 +21,10 @@ const App = () =>{
       <SearchBar />
       <div className="container">
         <AddBtn />
+        <TechModal />
         <AddLog />
         <EditLog />        
-        <Logs />
-        <TechModal />
+        <Logs />        
         <AddTech />
       </div>
     </Fragment>
