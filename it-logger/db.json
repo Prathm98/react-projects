@@ -8,38 +8,11 @@
       "tech": "Abcd"
     },
     {
-      "id": 2,
-      "msg": "This is the server 2 log",
-      "attention": false,
-      "date": "02-01-2020",
-      "tech": "Xyzw"
-    },
-    {
-      "msg": "This is the server 3 log",
-      "attention": false,
-      "date": "02-01-2020",
-      "tech": "Xyzw",
-      "id": 3
-    },
-    {
-      "msg": "abcd",
-      "attention": true,
-      "tech": "2",
-      "id": 4
-    },
-    {
-      "msg": "abcd",
-      "attention": true,
-      "tech": "2",
-      "date": "2021-01-13T21:54:09.110Z",
-      "id": 5
-    },
-    {
       "msg": "abcd",
       "attention": true,
       "tech": "2",
       "date": "Thu Jan 14 2021",
-      "id": 6
+      "id": 2
     }
   ],
   "techs": [
