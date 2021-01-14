@@ -1,18 +1,24 @@
 {
   "logs": [
     {
-      "id": 1,
-      "msg": "This is the server 1 log",
+      "msg": "This is the server 1 log test 3",
       "attention": false,
-      "date": "01-01-2020",
-      "tech": "Abcd"
+      "tech": "Abcd",
+      "id": 1
     },
     {
-      "msg": "abcd",
+      "id": 2,
+      "msg": "abcd2",
+      "attention": true,
+      "tech": "3",
+      "date": "Fri Jan 15 2021"
+    },
+    {
+      "id": 3,
+      "msg": "adccc cdccd",
       "attention": true,
       "tech": "2",
-      "date": "Thu Jan 14 2021",
-      "id": 2
+      "date": "Fri Jan 15 2021"
     }
   ],
   "techs": [

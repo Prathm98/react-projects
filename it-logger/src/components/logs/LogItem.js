@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteLog } from '../../actions/logActions';
+import { deleteLog, setCurrent, clearCurrent } from '../../actions/logActions';
 
-const LogItem = ({ log, deleteLog }) => {
+const LogItem = ({ log, deleteLog, setCurrent, clearCurrent }) => {
   const {id, msg, attention, tech, date} = log;
 
   const deleteItem = () => {
@@ -10,9 +10,13 @@ const LogItem = ({ log, deleteLog }) => {
     console.log(id);
   }
 
+  const setCurrentLog = () => {
+    setCurrent(log);
+  }
+
   return (
     <li className="collection-item">
-      <a href="#edit-log-modal" className={`modal-trigger ${
+      <a href="#edit-log-modal" onClick={setCurrentLog} className={`modal-trigger ${
         attention? 'red-text': 'blue-text'
       }`}>
         {msg}
@@ -28,4 +32,4 @@ const LogItem = ({ log, deleteLog }) => {
   )
 }
 
-export default connect(null, {deleteLog})(LogItem);
+export default connect(null, {deleteLog, setCurrent, clearCurrent})(LogItem);

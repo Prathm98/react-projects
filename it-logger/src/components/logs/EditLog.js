@@ -1,10 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { connect } from 'react-redux';
+import { updateLog } from '../../actions/logActions';
 
-const EditLog = () => {
+const EditLog = ({ current, updateLog}) => {
   const [log, setLog] = useState({
     msg: '', attention: false, tech: ''
   });
+
+  useEffect(() => {
+    if(current !== null){
+      setLog({msg: current.msg, attention: current.attention, tech: current.tech});
+    }
+  }, [current]);
   const { msg, attention, tech } = log;
 
   const onChange = (n, v) =>{
@@ -12,8 +20,10 @@ const EditLog = () => {
   }
 
   const onSubmit = () => {
-    console.log(log);
-    M.toast({html: "Submit"});
+    updateLog({
+      id: current.id, ...log, date: new Date().toDateString()
+    });
+    M.toast({html: "Log Updated"});
   }
 
   return (
@@ -25,7 +35,6 @@ const EditLog = () => {
         <div className="input-field">
           <i className="material-icons prefix">textsms</i>
           <input type="text" id="msg1" value={msg} onChange={e => onChange('msg', e.target.value)} />
-          <label htmlFor="msg">Log Message</label>
         </div>
       </div>
       <div className="row">
@@ -55,4 +64,10 @@ const EditLog = () => {
   )
 }
 
-export default EditLog
+const mapStateToProps = state => ({
+  current: state.log.current
+});
+
+export default connect(mapStateToProps, {
+  updateLog
+})(EditLog);
