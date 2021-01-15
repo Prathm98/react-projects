@@ -1,12 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addLog } from '../../actions/logActions';
+import { getTechs } from '../../actions/techActions';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddLog = ({ addLog }) => {
+const AddLog = ({ tech: { techs }, addLog, getTechs }) => {
   const [log, setLog] = useState({
     msg: '', attention: false, tech: ''
   });
+
+  useEffect(() => {
+    getTechs();
+    //eslint-disable-next-line
+  }, [])
+
   const { msg, attention, tech } = log;
 
   const onChange = (n, v) =>{
@@ -37,9 +44,9 @@ const AddLog = ({ addLog }) => {
         <div className="input-field">
           <select className="browser-default" name="tech" value={tech} onChange={e => onChange('tech', e.target.value)}>
             <option value="" name="tech" disabled>Select Technician</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            {techs!==null && techs.map(tech => (
+              <option key={tech.id} value={tech.firstName+" "+tech.lastName}>
+                {tech.firstName+" "+tech.lastName}</option>))}
           </select>
         </div>
       </div>
@@ -59,5 +66,7 @@ const AddLog = ({ addLog }) => {
     </div>
   )
 }
-
-export default connect( null, {addLog} )(AddLog);
+const mapStateToProps = (state) => ({
+  tech: state.tech
+});
+export default connect( mapStateToProps, {addLog, getTechs} )(AddLog);

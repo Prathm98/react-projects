@@ -3,7 +3,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import { connect } from 'react-redux';
 import { updateLog } from '../../actions/logActions';
 
-const EditLog = ({ current, updateLog}) => {
+const EditLog = ({ tech: {techs}, current, updateLog, getTechs}) => {
   const [log, setLog] = useState({
     msg: '', attention: false, tech: ''
   });
@@ -41,9 +41,7 @@ const EditLog = ({ current, updateLog}) => {
         <div className="input-field">
           <select className="browser-default" name="tech" value={tech} onChange={e => onChange('tech', e.target.value)}>
             <option value="" name="tech" disabled>Select Technician</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            {techs!==null && techs.map(tech => (<option key={tech.id} value={tech.firstName+" "+tech.lastName}>{tech.firstName+" "+tech.lastName}</option>))}
           </select>
         </div>
       </div>
@@ -65,7 +63,8 @@ const EditLog = ({ current, updateLog}) => {
 }
 
 const mapStateToProps = state => ({
-  current: state.log.current
+  current: state.log.current,
+  tech: state.tech
 });
 
 export default connect(mapStateToProps, {

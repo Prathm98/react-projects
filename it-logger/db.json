@@ -10,14 +10,14 @@
       "id": 2,
       "msg": "abcd2",
       "attention": true,
-      "tech": "3",
+      "tech": "John Ex",
       "date": "Fri Jan 15 2021"
     },
     {
       "id": 3,
       "msg": "adccc cdccd",
       "attention": true,
-      "tech": "2",
+      "tech": "Mnop Xyz",
       "date": "Fri Jan 15 2021"
     }
   ],
@@ -28,9 +28,9 @@
       "lastName": "Efgh"
     },
     {
-      "id": 2,
-      "firstName": "Mnop",
-      "lastName": "Xyz"
+      "firstName": "John",
+      "lastName": "Ex",
+      "id": 4
     }
   ]
 }

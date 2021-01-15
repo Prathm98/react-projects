@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
+import { addTech } from '../../actions/techActions';
+import { connect } from 'react-redux';
 
-const AddTech = () => {
+const AddTech = ({ addTech }) => {
   const [tech, setTech] = useState({
     firstName: '', lastName: ''
   });
+
   const { firstName, lastName } = tech;
 
   const onChange = (n, v) =>{
@@ -11,7 +14,7 @@ const AddTech = () => {
   }
 
   const onSubmit = () => {
-    console.log(tech);
+    addTech(tech);
   }
 
   return (
@@ -40,4 +43,6 @@ const AddTech = () => {
   )
 }
 
-export default AddTech
+export default connect(null, {
+  addTech
+})(AddTech);
