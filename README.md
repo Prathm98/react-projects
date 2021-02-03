@@ -1,2 +1,2 @@
 # react-projects
-This is repository is created to manage all react projects.
+This is repository is to start with MERN stack.
